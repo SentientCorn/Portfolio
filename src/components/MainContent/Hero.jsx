@@ -1,6 +1,6 @@
 import GithubCard from "../Cards/GithubCard";
 
-let alias = ["SentientCorn", "Popkoern"];
+let alias = ["SentientCorn", "Popkoern", "Cari Jagung"];
 
 export default function Hero() {
 
@@ -19,7 +19,7 @@ export default function Hero() {
               tama
             </h1>
             <p className="text-base-text font-semibold mt-2">
-              I also go by <i>Real Nigga</i>
+              I also go by {alias[Math.floor(Math.random() * alias.length)]}
             </p>
 
             {/* Description Section */}
