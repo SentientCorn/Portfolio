@@ -1,4 +1,5 @@
 import GithubCard from "../Cards/GithubCard";
+import Button from "../Button";
 
 let alias = ["SentientCorn", "Popkoern", "Cari Jagung"];
 
@@ -8,8 +9,8 @@ export default function Hero() {
       <div className="container mx-auto flex flex-1 h-full flex-col">
         <div className="flex flex-col flex-1 md:flex-row items-center gap-8">
           {/* Name */}
-          <div className="flex flex-col flex-1 justify-between">
-            <h1 className="text-[4.5rem] font-bold text-base-text">
+          <div className="flex flex-col justify-between h-full">
+            <h1 className="text-[4.5rem] font-bold text-base-text leading-[0.95]">
               Hello! <br />
               I'm Raditya Ryan{" "}
               <b className="text-base-text [-webkit-text-stroke-width:1px] [-webkit-text-stroke-color:#ff9fa0]">
@@ -22,10 +23,12 @@ export default function Hero() {
             </p>
 
             {/* Description Section */}
-            <p className="text-lg text-base-text mt-4">
-              I am a developer yap yap yap yap yap yap yap yap yap yap yap yap
-              yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap
-              yap yap
+            <p className="text-lg text-base-text mt-4 text-justify">
+              I’m a programmer with a broad interest in different areas of
+              technology. I’ve worked with both hardware and software, and I
+              enjoy building projects in embedded systems, IoT, machine
+              learning, computer vision, and general software development. I’m
+              always looking to create new things and learn along the way.
             </p>
           </div>
 
@@ -53,12 +56,16 @@ export default function Hero() {
         </div>
         {/* Link buttons */}
         <div className="mt-8 flex space-x-4">
-          <span>Download CV</span>
-          <span>Contact Me</span>
+          <Button href="/cv.pdf" variant="primary">
+            Download CV
+          </Button>
+          <Button href="mailto:raditya.ryan@example.com" variant="secondary">
+            Contact Me
+          </Button>
         </div>
         {/* Github API */}
         <div className="mt-8">
-          <GithubCard username="SentientCorn"/>
+          <GithubCard username="SentientCorn" />
         </div>
       </div>
     </section>
