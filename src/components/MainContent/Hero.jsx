@@ -3,13 +3,12 @@ import GithubCard from "../Cards/GithubCard";
 let alias = ["SentientCorn", "Popkoern", "Cari Jagung"];
 
 export default function Hero() {
-
   return (
-    <section className="bg-base-200 py-10 flex justify-between ">
-      <div className="container mx-auto ">
-        <div className="flex flex-col md:flex-row items-center gap-8">
+    <section className="bg-base-200 flex flex-1 flex-col justify-between py-10">
+      <div className="container mx-auto flex flex-1 h-full flex-col">
+        <div className="flex flex-col flex-1 md:flex-row items-center gap-8">
           {/* Name */}
-          <div className="flex-1">
+          <div className="flex flex-col flex-1 justify-between">
             <h1 className="text-[4.5rem] font-bold text-base-text">
               Hello! <br />
               I'm Raditya Ryan{" "}
@@ -59,7 +58,7 @@ export default function Hero() {
         </div>
         {/* Github API */}
         <div className="mt-8">
-          <GithubCard />
+          <GithubCard username="SentientCorn"/>
         </div>
       </div>
     </section>

@@ -1,11 +1,23 @@
-export default function GithubCard() {
+import { useGithub } from "../../hooks/useGithub";
+
+export default function GithubCard({ username }) {
+  const { data, loading, error } = useGithub(username);
+
+  if (error) return <p>{error.message}</p>;
+
+  if (loading || !data.user) return <p>Loading...</p>;
+
+  const { user, repos } = data;
+
   return (
-    <div className="bg-base-300 p-4 rounded-lg shadow-md">
-      <h3 className="text-xl font-bold mb-2">GitHub Profile</h3>
-      <p className="text-base-text mb-4">Check out my GitHub profile for my latest projects and contributions.</p>
-      <a href="https://github.com/radityaryan" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-        View Profile
-      </a>
+    <div>
+      <h2>{user.name}</h2>
+      <p>
+        <a href={user.html_url} target="_blank" rel="noreferrer">
+          {user.login}
+        </a>
+      </p>
+      <p>Public repos: {user.public_repos}</p>
     </div>
   );
 }
