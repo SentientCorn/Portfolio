@@ -3,6 +3,7 @@ export default function Header() {
     <nav className="bg-base-300 py-4 font-bold text-xl">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-4 font-bold text-xl">
+          <img src="public\CircleCorn.png" alt="Kornfolio Logo" className="w-8 h-8" />
           <span className="text-base-text text-3xl">Kornfolio</span>
         </div>
         <div className="flex items-center space-x-4">
