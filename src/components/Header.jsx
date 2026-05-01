@@ -6,9 +6,8 @@ export default function Header() {
           <span className="text-base-text text-3xl">Kornfolio</span>
         </div>
         <div className="flex items-center space-x-4">
-          <a href="#home" className="hover:text-neutral-text">Home</a>
           <a href="#about" className="hover:text-neutral-text">About</a>
-          <a href="#projects" className="hover:text-neutral-text">Projects</a>
+          <a href="#projects" className="hover:text-neutral-text">Experience</a>
           <a href="#contact" className="hover:text-neutral-text">Contact</a>
         </div>
       </div>
