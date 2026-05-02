@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
 const TTL = 1000 * 60 * 60 * 2; // Cache Time To Live 2 hours
+const CACHE_KEY = "kornfolio_github_cache";
 
-export function useGithub(username) {
+export function useGithubREST(username) {
   // Object with both user and repo data
   const [data, setData] = useState({
     user: null,
@@ -21,7 +22,7 @@ export function useGithub(username) {
     }
 
     try {
-      const cache = localStorage.getItem("kornfolio_github_cache");
+      const cache = localStorage.getItem(CACHE_KEY);
 
       if (cache) {
         const parsedCache = JSON.parse(cache);
@@ -32,7 +33,7 @@ export function useGithub(username) {
           setLoading(false);
           return;
         } else {
-          localStorage.removeItem("kornfolio_github_cache");
+          localStorage.removeItem(CACHE_KEY);
         }
       }
     } catch (e) {
@@ -63,7 +64,7 @@ export function useGithub(username) {
 
         // Cache the data with timestamp
         localStorage.setItem(
-          "kornfolio_github_cache",
+          CACHE_KEY,
           JSON.stringify({ timestamp: Date.now(), data: { user, repos } }),
         );
       } catch (e) {
