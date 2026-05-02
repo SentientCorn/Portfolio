@@ -90,7 +90,7 @@ export default function GithubCard({ username }) {
                   className="min-w-0"
                 />
                 <GithubStat
-                  label="Contrib"
+                  label="Contributed Repos"
                   value={
                     graphQLLoading ? "..." : (stats?.contributedRepos ?? "-")
                   }
