@@ -69,7 +69,7 @@ export default function Hero() {
           <Button href="/cv.pdf" variant="primary">
             Download CV
           </Button>
-          <Button href="mailto:raditya.ryan@example.com" variant="secondary">
+          <Button href="mailto:radityanarotama0@gmail.com" variant="secondary">
             Contact Me
           </Button>
         </div>
