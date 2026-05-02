@@ -3,7 +3,7 @@ import Button from "../Button";
 
 
 let alias = ["SentientCorn", "Popkoern", "Cari Jagung"];
-const photoSrc = undefined;
+const photoSrc = "/Profile.jpg";
 
 export default function Hero() {
   return (
