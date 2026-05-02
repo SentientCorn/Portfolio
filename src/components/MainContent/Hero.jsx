@@ -1,7 +1,9 @@
 import GithubCard from "../Cards/GithubCard";
 import Button from "../Button";
 
+
 let alias = ["SentientCorn", "Popkoern", "Cari Jagung"];
+const photoSrc = undefined;
 
 export default function Hero() {
   return (
@@ -37,20 +39,28 @@ export default function Hero() {
             <div
               role="img"
               aria-label="Photo placeholder"
-              className="w-48 h-48 md:w-64 md:h-64 bg-base-100 rounded-lg border-2 border-dashed border-base-content/20 flex items-center justify-center"
+              className="w-48 h-48 md:w-64 md:h-64 bg-base-100 rounded-lg border-2 border-dashed border-base-content/20 overflow-hidden flex items-center justify-center"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-16 h-16 text-base-content/40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M3 15l4-4a3 3 0 014 0l5 5" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-              </svg>
+              {photoSrc ? (
+                <img
+                  src={photoSrc}
+                  alt="Profile photo"
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-16 h-16 text-base-content/40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 15l4-4a3 3 0 014 0l5 5" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                </svg>
+              )}
             </div>
           </div>
         </div>
