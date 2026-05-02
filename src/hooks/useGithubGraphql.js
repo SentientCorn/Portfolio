@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const TTL = 1000 * 60 * 60 * 2; // 2 hours
 
-export function useGithubGraphQL(username) {
+export function useGithubGraphQL(username, enabled = true) {
   const [data, setData] = useState({
     user: null,
     stats: null,
@@ -12,6 +12,13 @@ export function useGithubGraphQL(username) {
   const [error, setError] = useState();
 
   useEffect(() => {
+    if (!enabled) {
+      setData({ user: null, stats: null });
+      setError(null);
+      setLoading(false);
+      return;
+    }
+
     if (!username) {
       setError(new Error("Username required"));
       setLoading(false);
@@ -58,7 +65,7 @@ export function useGithubGraphQL(username) {
           JSON.stringify({
             timestamp: Date.now(),
             data: json,
-          })
+          }),
         );
       } catch (err) {
         setError(err);
@@ -68,7 +75,7 @@ export function useGithubGraphQL(username) {
     }
 
     fetchData();
-  }, [username]);
+  }, [username, enabled]);
 
   return { data, loading, error };
 }
