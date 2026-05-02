@@ -1,8 +1,9 @@
-import { useGithub } from "../../hooks/useGithub";
+import { useGithubREST } from "../../hooks/useGithubREST";
 import GitHubLogo from "../../assets/GitHub_Lockup_White_Clearspace.svg";
+import GithubStat from "./GithubStat";
 
 export default function GithubCard({ username }) {
-  const { data, loading, error } = useGithub(username);
+  const { data, loading, error } = useGithubREST(username);
 
   if (error) return <p>{error.message}</p>;
 
@@ -40,20 +41,9 @@ export default function GithubCard({ username }) {
 
         {/* Stats Block */}
         <div className="flex gap-2 flex-1">
-          <div className="bg-[#101411] px-2 py-1 rounded text-center flex-1">
-            <div className="text-xs text-gray-400">Followers</div>
-            <div className="text-lg font-bold">{user.followers}</div>
-          </div>
-
-          <div className="bg-[#101411] px-2 py-1 rounded text-center flex-1">
-            <div className="text-xs text-gray-400">Following</div>
-            <div className="text-lg font-bold">{user.following}</div>
-          </div>
-
-          <div className="bg-[#101411] px-2 py-1 rounded text-center flex-1">
-            <div className="text-xs text-gray-400">Repos</div>
-            <div className="text-lg font-bold">{user.public_repos}</div>
-          </div>
+          <GithubStat label="Followers" value={user.followers} />
+          <GithubStat label="Following" value={user.following} />
+          <GithubStat label="Repos" value={user.public_repos} />
 
           <a
             href={user.html_url}
