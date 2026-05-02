@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+export default async function handler(req, res) {
   const PAT = process.env.GITHUB_PAT;
   const { username } = req.query;
 
@@ -45,7 +45,7 @@ export default function handler(req, res) {
     const response = await fetch("https://api.github.com/graphql", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${PAT}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
